@@ -1,126 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Ansukutty ❤️</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Ansukutty ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap');
 
-<style>
-    *{
-        margin:0;
-        padding:0;
-        box-sizing:border-box;
-        font-family:'Poppins', sans-serif;
-    }
-
-    body{
-        height:100vh;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        background:linear-gradient(135deg,#ff758c,#ff7eb3);
-        overflow:hidden;
-    }
-
-    .container{
-        text-align:center;
-        background:rgba(255,255,255,0.15);
-        backdrop-filter:blur(10px);
-        padding:40px;
-        border-radius:20px;
-        color:white;
-        box-shadow:0 10px 30px rgba(0,0,0,0.2);
-        animation:float 3s ease-in-out infinite;
-    }
-
-    h1{
-        font-size:3rem;
-        margin-bottom:15px;
-    }
-
-    p{
-        font-size:1.2rem;
-        line-height:1.8;
-    }
-
-    .heart{
-        font-size:60px;
-        color:red;
-        animation:beat 1s infinite;
-        margin:20px 0;
-    }
-
-    @keyframes beat{
-        0%,100%{transform:scale(1);}
-        50%{transform:scale(1.3);}
-    }
-
-    @keyframes float{
-        0%,100%{transform:translateY(0);}
-        50%{transform:translateY(-10px);}
-    }
-
-    .btn{
-        display:inline-block;
-        margin-top:20px;
-        padding:12px 25px;
-        border:none;
-        border-radius:30px;
-        background:white;
-        color:#ff4f81;
-        font-weight:bold;
-        text-decoration:none;
-        transition:0.3s;
-    }
-
-    .btn:hover{
-        transform:scale(1.1);
-    }
-
-    .floating-heart{
-        position:absolute;
-        color:white;
-        font-size:25px;
-        animation:rise 8s linear infinite;
-    }
-
-    @keyframes rise{
-        from{
-            transform:translateY(100vh);
-            opacity:1;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        to{
-            transform:translateY(-100px);
-            opacity:0;
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(-45deg, #ff758c, #ff7eb3, #c678dd, #fd8282);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            overflow: hidden;
+            position: relative;
+            cursor: none; /* Hides default cursor for our custom one */
         }
-    }
-</style>
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Glassmorphism Card */
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 50px 40px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+            transform: translateY(30px);
+            opacity: 0;
+            animation: slideUp 1.5s ease forwards 0.5s;
+            z-index: 10;
+        }
+
+        @keyframes slideUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+            margin-bottom: 10px;
+        }
+
+        p.subtitle {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+        }
+
+        .message-box {
+            min-height: 80px;
+            margin-bottom: 30px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+
+        /* Interactive Button */
+        .love-btn {
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .love-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 65, 108, 0.6);
+        }
+
+        .love-btn:active {
+            transform: translateY(1px);
+        }
+
+        /* Custom Cursor Trail */
+        .cursor-trail {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            box-shadow: 0 0 10px #fff, 0 0 20px #ff7eb3;
+            transform: translate(-50%, -50%);
+            z-index: 100;
+            animation: fadeOut 1s linear forwards;
+        }
+
+        /* Floating Hearts */
+        .floating-heart {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 24px;
+            pointer-events: none;
+            z-index: 1;
+            animation: floatUp 4s ease-in forwards;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(0.5); opacity: 1; }
+            100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+        }
+    </style>
 </head>
 <body>
 
-<div class="floating-heart" style="left:10%; animation-delay:0s;">❤️</div>
-<div class="floating-heart" style="left:30%; animation-delay:2s;">❤️</div>
-<div class="floating-heart" style="left:50%; animation-delay:4s;">❤️</div>
-<div class="floating-heart" style="left:70%; animation-delay:1s;">❤️</div>
-<div class="floating-heart" style="left:90%; animation-delay:3s;">❤️</div>
+    <div class="card">
+        <h1>Ansukutty</h1>
+        <p class="subtitle">The most beautiful girl in the world.</p>
+        
+        <div class="message-box" id="messageBox">
+            "Every love story is beautiful, but ours is my favorite."
+        </div>
 
-<div class="container">
-    <h1>Dear Ansukutty ❤️</h1>
+        <button class="love-btn" id="loveBtn" onmouseover="buttonHoverEffect()">Click to see how much I love you</button>
+    </div>
 
-    <div class="heart">❤️</div>
+    <script>
+        // Array of sweet messages
+        const messages = [
+            "You are the reason my world is so colorful.",
+            "I fall in love with you all over again every single day.",
+            "My favorite place in the whole world is right next to you.",
+            "You are my today and all of my tomorrows.",
+            "Seeing you smile is the best part of my day.",
+            "I didn't know what perfect was until I met you, Ansukutty."
+        ];
 
-    <p>
-        Every day with you feels like a beautiful dream.<br>
-        Your smile brightens my world, and your presence
-        makes every moment special.<br><br>
+        const loveBtn = document.getElementById('loveBtn');
+        const messageBox = document.getElementById('messageBox');
 
-        Thank you for being the most wonderful person in my life.
-        No matter where life takes us, you will always have
-        a special place in my heart. 💖
-    </p>
+        // Button Click Event: Change Message & Spawn Hearts
+        loveBtn.addEventListener('click', (e) => {
+            // Change message with a fade effect
+            messageBox.style.opacity = 0;
+            setTimeout(() => {
+                const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+                messageBox.innerText = `"${randomMsg}"`;
+                messageBox.style.opacity = 1;
+                messageBox.style.transition = "opacity 0.5s ease";
+            }, 300);
 
-    <a href="#" class="btn">I Love You ❤️</a>
-</div>
+            // Create a burst of hearts
+            for(let i = 0; i < 15; i++) {
+                setTimeout(createHeart, i * 100);
+            }
+        });
 
+        // Function to create a floating heart from the bottom
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.innerHTML = '❤️';
+            
+            // Randomize position, size, and animation duration
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.bottom = '-50px';
+            heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            
+            document.body.appendChild(heart);
+            
+            // Remove heart after animation finishes
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        // Custom Interactive Cursor
+        document.addEventListener('mousemove', function(e) {
+            const trail = document.createElement('div');
+            trail.className = 'cursor-trail';
+            trail.style.left = e.pageX + 'px';
+            trail.style.top = e.pageY + 'px';
+            document.body.appendChild(trail);
+
+            setTimeout(() => {
+                trail.remove();
+            }, 1000);
+        });
+
+        // Auto spawn background hearts slowly
+        setInterval(createHeart, 2000);
+
+        // Fun ripple effect on button hover
+        function buttonHoverEffect() {
+            loveBtn.style.transform = "scale(1.05) rotate(" + (Math.random() * 4 - 2) + "deg)";
+        }
+    </script>
 </body>
 </html>
